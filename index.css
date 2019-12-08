@@ -1,0 +1,471 @@
+/*---Fonts---*/
+@font-face {
+    font-family: "Roboto";
+    src: url("font/Roboto-Bold.ttf") format("truetype");
+    font-weight: 800;
+}
+@font-face {
+    font-family: "Roboto";
+    src: url("font/Roboto-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Roboto";
+    src: url("font/Roboto-Light.ttf") format("truetype");
+    font-weight: 200;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+body{
+    font-size: 16px;
+}
+
+p{
+    font-family: "Roboto";
+    font-size: 1rem;
+    color: #fff;
+}
+
+/*---Background---*/
+.background{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #222;
+}
+.background canvas{
+    width: 100%;
+    height: 100%;
+}
+
+/*---Lecteur Clip---*/
+.lecteur-clip{
+    position: absolute;
+    bottom: 5vmin;
+    left: 5vmin;
+    width: 10vmin;
+    height: 10vmin;
+
+    transition: width .5s;
+    background-color: #ccc;
+}
+.lecteur-clip:hover{
+    width: 20vmin;
+}
+
+.lecteur-clip .cover{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 10vmin;
+
+    background-size: cover;
+    background-color: #aaa;
+}
+.lecteur-clip .content{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 10vmin;
+
+    background-color: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lecteur-clip .content .play{
+    width: 60%;
+    height: 60%;
+    opacity: .8;
+    transition: opacity .5s;
+}
+.lecteur-clip .content .play:hover{
+    opacity: 1;
+}
+
+/*---Lecteur---*/
+.lecteur-container{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.lecteur{
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, .2);
+}
+/*-Lecteur Mini-*/
+.min{
+    display: block;
+    width: 40vmin;
+    height: 50vmin;
+    margin: 50vh auto 0 auto;
+    transform: translateY(-50%);
+}
+/*-Lecteur Max-*/
+.max{
+    width: 100%;
+    height: 100vh;
+}
+
+/*Top*/
+.lecteur .top{
+    width: 100%;
+
+    background-color: #333;
+}
+.min .top{
+    height: 80%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.max .top{
+    height: 90vh;
+    text-align: center;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.lecteur .top .playlist{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+.min .top .playlist{
+    width: 100%;
+    height: 90%;
+}
+.max .top .playlist{
+    position: absolute;
+    top: 10%;
+    /* left: 0px; */
+    bottom: 15%;
+    width: 100%;
+    /* min-width: 100%; */
+    padding-top: 15vh;
+    background-color: #222;
+}
+.max .carousel{
+    overflow: hidden;
+}
+.lecteur .carousel-container{
+    min-width: 100%;
+    height: 100%;
+    transition: left 1s;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+.max .carousel-container{
+    position: absolute;
+    height: auto;
+    padding-left: 2vmin;
+    padding-right: 2vmin;
+    left: 0px;
+}
+
+/* .lecteur .top .cover{
+    margin: 0 auto;
+} */
+.min .top .cover{
+    width: 90%;
+    height: 100%;
+}
+.max .top .cover{
+    width: 40vh;
+    /*height: 32vmin; */
+    margin-left: 2vmin;
+    margin-right: 2vmin;
+}
+
+.lecteur .top .cover .img{
+    background-size: cover;
+    background-color: #aaa;
+}
+.min .top .cover .img{
+    width: 100%;
+    height: 100%;
+}
+.max .top .cover .img{
+    width: 24vh;
+    height: 24vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+.lecteur .top .cover p{
+    width: 100%;
+    height: 25%;
+    padding-top: 15%;
+    text-align: center;
+
+    font-size: 1.2rem;
+    font-weight: 800;
+
+    /* -webkit-touch-callout: none; /* iOS Safari */
+    /*-webkit-user-select: none; /* Safari */
+    /* -khtml-user-select: none; /* Konqueror HTML */
+    /*   -moz-user-select: none; /* Old versions of Firefox */
+    /*    -ms-user-select: none; /* Internet Explorer/Edge */
+    /*        user-select: none; */
+}
+.lecteur .top .cover p + p{
+    padding-top: 5%;
+    font-size: 1rem;
+    font-weight: 200;
+}
+
+/*Timeline*/
+.lecteur .top .timeline{
+    height: 10%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.min .top .timeline{
+    width: 100%;
+    margin-top: 2.5%;
+}
+.max .top .timeline{
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    bottom: 2.5%;
+    /* width: 90%; */
+}
+.lecteur .top .timeline .line{
+    width: 100%;
+
+    background-color: #fff;
+}
+.min .top .timeline .line{
+    height: 0.5vmin;
+}
+.max .top .timeline .line{
+    height: 0.5vh;
+}
+.lecteur .top .timeline .progress{
+    width: 0%;
+    height: 100%;
+
+    background-color: #33f;
+
+    position: relative;
+}
+.lecteur .top .timeline .time{
+    position: absolute;
+    right: 0;
+    width: 2vmin;
+    border-radius: 50%;
+    transform: translate(50%,-40%);
+
+    background-color: #fff;
+    border: 1px solid #111;
+}
+.min .top .timeline .time{
+    width: 2vmin;
+    height: 2vmin;
+}
+.max .top .timeline .time{
+    width: 2vh;
+    height: 2vh;
+}
+.lecteur .top .timeline .time:hover{
+    background-color: #33f;
+}
+
+/*Down*/
+.lecteur .down{
+    width: 100%;
+
+    background-color: #fff;
+
+    display: flex;
+    justify-content: space-between;
+
+}
+.min .down{
+    height: 20%;
+    padding: 2vmin;
+    align-items: flex-end;
+}
+.max .down{
+    height: 10vh;
+    padding: 3vh;
+    align-items: center;
+}
+
+/*Command*/
+.lecteur .down .command{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.lecteur .down .command div{
+    display: inline-block;
+
+    opacity: .8;
+    transition: opacity .5s;
+}
+.min .down .command div{
+    width: 5vmin;
+    height: 5vmin;
+}
+.max .down .command div{
+    width: 5vh;
+    height: 5vh;
+}
+.lecteur .down .command div:hover{
+    opacity: 1;
+}
+
+.lecteur .down .button{
+    opacity: .8;
+    transition: opacity .5s;
+}
+.min .down .button{
+    width: 3vmin;
+    height: 3vmin;
+}
+.max .down .button{
+    width: 3vh;
+    height: 3vh;
+}
+.lecteur .down .button:hover{
+    opacity: 1;
+}
+
+.down .playlist{
+    background-image: url("img/playlist.png");
+    background-size: cover;
+}
+.prev{
+    background-image: url("img/prev.png");
+    background-size: cover;
+}
+.play{
+    background-image: url("img/play.png");
+    background-size: cover;
+}
+.next{
+    background-image: url("img/next.png");
+    background-size: cover;
+}
+
+/*Volumeline*/
+.down .volume-clip{
+    overflow: hidden;
+    position: relative;
+
+    background-color: #0000;
+    transition: height .5s, background-color .5s, transform .5s;
+}
+.min .down .volume-clip{
+    width: 3vmin;
+    height: 3vmin;
+}
+.max .down .volume-clip{
+    width: 3vh;
+    height: 3vh;
+
+    align-self: flex-end;
+    margin-bottom: 0.5vh;
+}
+.lecteur .down .volume-clip_open{
+    background-color: #2229;
+}
+.min .down .volume-clip_open{
+    height: 22vmin;
+}
+.max .down .volume-clip_open{
+    height: 22vh;
+}
+.down .volume{
+    position: absolute;
+    bottom: 0;
+    background-image: url("img/volume.png");
+    background-size: cover;
+}
+.down .volumeline{
+    position: absolute;
+    width: 100%;
+    /* margin-top: 2.5%; */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.min .down .volumeline{
+    bottom: 5vmin;
+    height: 15vmin;
+}
+.max .down .volumeline{
+    bottom: 5vh;
+    height: 15vh;
+}
+
+.down .volumeline .line{
+    height: 100%;
+    background-color: #fff;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+.min .down .volumeline .line{
+    width: 0.5vmin;
+}
+.max .down .volumeline .line{
+    width: 0.5vh;
+}
+.down .volumeline .progress{
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+
+    background-color: blue;
+}
+.down .volumeline .current-volume{
+    border-radius: 50%;
+    transform: translate(-30%,-50%);
+
+    background-color: #fff;
+    border: 1px solid #111;
+}
+.min .down .volumeline .current-volume{
+    width: 1.5vmin;
+    height: 1.5vmin;
+}
+.max .down .volumeline .current-volume{
+    width: 1.5vh;
+    height: 1.5vh;
+}
+.down .volumeline .current-volume:hover{
+    background-color: #33f
+}
+
+.hide{
+    display: none;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Lecteur Audio</title>
+
+        <link rel="stylesheet" href="index.css">
+
+        <script type="text/javascript" src="index.js"></script>
+    </head>
+    <body>
+        <div class="background"><canvas></canvas></div>
+        <div class="lecteur-container">
+            <div class="lecteur min">
+                <div class="top">
+                    <div class="playlist carousel">
+                        <div class="carousel-container">
+
+                        </div>
+                        <!-- <div class="cover">
+                            <div class="img"></div>
+                            <p class="hide">Title</p>
+                            <p class="hide">Artist</p>
+                        </div> -->
+                    </div>
+                    <div class="timeline">
+                        <div class="line"><div class="progress"><div class="time"></div></div></div>
+                    </div>
+                </div>
+                <div class="down">
+                    <div class="button playlist" onclick="sizeLecteur();"></div>
+                    <div class="command">
+                        <div class="prev" onclick="prev();"></div>
+                        <div class="play"></div>
+                        <div class="next" onclick="next();"></div>
+                    </div>
+                    <div class="volume-clip" draggable="false">
+                        <div class="volumeline">
+                            <div class="line"><div class="progress"><div class="current-volume"></div></div></div>
+                        </div>
+                        <div class="button volume"  onclick="toggleVolume();"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lecteur-clip">
+            <div class="content"><div class="play"></div></div>
+            <div class="cover"></div>
+        </div>
+
+        <audio preload ontimeupdate="updateTimeline()"></audio>
+    </body>
+</html>
